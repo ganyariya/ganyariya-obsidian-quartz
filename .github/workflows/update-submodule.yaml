@@ -10,7 +10,7 @@ jobs:
       - name: checkout repository
         uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
           token: ${{ secrets.OBSIDIAN_QUARTZ_TOKEN }}
 
       - name: update submodule
@@ -18,11 +18,13 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-          git submodule update --remote --merge content
+          git submodule update --remote --recursive 
+          git add .
 
-          if git diff --staged --quiet; then
-            echo "No updates available"
-          else
-            git commit -m "🔄 Update obsidian content submodule"
-            git push
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes detected in submodule."
+            exit 0
           fi
+
+          git commit -m "🔄 Update obsidian content submodule"
+          git push
