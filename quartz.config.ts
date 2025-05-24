@@ -8,16 +8,21 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Quartz 4",
+    pageTitle: "ganyariya note",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
       provider: "plausible",
     },
-    locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    locale: "ja-JP",
+    baseUrl: "note.ganyariya.dev",
+    ignorePatterns: [
+      "private",
+      "templates",
+      ".obsidian",
+      "99_Templater",
+    ],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
