@@ -10,7 +10,7 @@ export const sharedPageComponents: SharedLayout = {
     links: {
       "Blog": "https://blog.ganyariya.dev",
       "GitHub": "https://github.com/ganyariya",
-      "Zenn": "https://zenn.dev/ganyariya",
+      "Zenn": "https://zenn.dev/ganariya",
     },
   }),
 }
