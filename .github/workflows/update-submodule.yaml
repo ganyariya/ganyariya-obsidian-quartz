@@ -1,0 +1,24 @@
+name: update content submodule
+on:
+  repository_dispatch:
+    types: [obsidian-updated]
+
+jobs:
+  update-submodule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          token: ${{ secrets.OBSIDIAN_QUARTZ_TOKEN }}
+
+      - name: update submodule
+        run: |
+          cd content
+          git checkout main
+          git pull origin main
+          cd ..
+          git add content
+          git commit -m "Update obsidian content submodule" || exit 0
+          git push
