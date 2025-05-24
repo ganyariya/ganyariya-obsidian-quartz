@@ -15,10 +15,14 @@ jobs:
 
       - name: update submodule
         run: |
-          cd content
-          git checkout main
-          git pull origin main
-          cd ..
-          git add content
-          git commit -m "Update obsidian content submodule" || exit 0
-          git push
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+          git submodule update --remote --merge content
+
+          if git diff --staged --quiet; then
+            echo "No updates available"
+          else
+            git commit -m "🔄 Update obsidian content submodule"
+            git push
+          fi
