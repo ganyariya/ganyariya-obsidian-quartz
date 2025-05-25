@@ -10,7 +10,9 @@ const config: QuartzConfig = {
   configuration: {
     pageTitle: "ganyariya note",
     pageTitleSuffix: "",
-    enableSPA: true,
+    // https://github.com/jackyzha0/quartz/issues/1918
+    // 試してみる
+    enableSPA: false,
     enablePopovers: true,
     analytics: {
       provider: "plausible",
