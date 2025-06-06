@@ -1,6 +1,8 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
 
+const GOOGLE_ANALYTICS_ID = process.env.GOOGLE_ANALYTICS_ID || ""
+
 /**
  * Quartz 4 Configuration
  *
@@ -14,8 +16,10 @@ const config: QuartzConfig = {
     // 試してみる
     enableSPA: false,
     enablePopovers: true,
+    // https://quartz.jzhao.xyz/configuration#general-configuration
     analytics: {
-      provider: "plausible",
+      provider: "google",
+      tagId: GOOGLE_ANALYTICS_ID,
     },
     locale: "ja-JP",
     baseUrl: "note.ganyariya.dev",
