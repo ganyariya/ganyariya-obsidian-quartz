@@ -13,8 +13,8 @@ const config: QuartzConfig = {
     pageTitle: "ganyariya note",
     pageTitleSuffix: "",
     // https://github.com/jackyzha0/quartz/issues/1918
-    // 試してみる
-    enableSPA: false,
+    // false を試してみる → false にしてもスクロールがスマホだと固まってしまう. true に戻す
+    enableSPA: true,
     enablePopovers: true,
     // https://quartz.jzhao.xyz/configuration#general-configuration
     analytics: {
